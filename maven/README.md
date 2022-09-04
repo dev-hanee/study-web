@@ -21,6 +21,9 @@
 
 ## Jenkins vs Maven
 - https://www.browserstack.com/guide/maven-vs-jenkins
+- Shorts
+  - Jenkins - CI/CD, can use Maven in the steps in CI/CD
+  - Maven - build tools, 
 
 |               | Jenkins                                                                                                                                                                                                                                                                                                                                              | Maven                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -32,3 +35,12 @@
 ### Purpose
 - A maven is a build tool designed to manage dependencies and the software lifecycle. It it also designed to work with plugins that allow users to add other taks to the standard compile, test, package, install, deploy tasks. 
 - Jekins is designed for the purpose of implementing CI. It checks code out of a repository, builds and packages it, and sends it out to a server for testing - automatically. Jenkins can use Maven as its build tool. 
+
+### Programming Models
+- Creating Maven plugins is easy, But externally, Maven is configured mainly through XML-based POM(Project Object Model) files. 
+- Navigating Maven POM files can be challenging for most Java developers. 
+
+### Dependency Management
+- Before Maven, Java developers often struggled to identify why the log4j dependency was unsatisfied on the production server, or why their pre-prod environment kept dealing with a SunCerPathBuilderException every time a remote session was initiated. Maven solved this through its ability to consistently build Java applications across muliple development stages, while simultaneously maintaining linked library consistency. 
+- While Jenkins cannot do exactly this, Jenkins builds can be highly parameterized, and Jenkins can easily modularize builds into numerous steps - compile, test, package. 
+
