@@ -44,3 +44,8 @@
 - Before Maven, Java developers often struggled to identify why the log4j dependency was unsatisfied on the production server, or why their pre-prod environment kept dealing with a SunCerPathBuilderException every time a remote session was initiated. Maven solved this through its ability to consistently build Java applications across muliple development stages, while simultaneously maintaining linked library consistency. 
 - While Jenkins cannot do exactly this, Jenkins builds can be highly parameterized, and Jenkins can easily modularize builds into numerous steps - compile, test, package. 
 
+
+## Questions
+- Maven 을 통해서 Project 를 만드는 것을 강조하는데, 그럼 spring 은 여기서 어떤 모양새로 들어가는 것일까?
+- dependency 
+  - import 
