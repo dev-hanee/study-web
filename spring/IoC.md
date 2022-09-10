@@ -94,6 +94,50 @@ public class Main {
 - 지금까지의 도메인 구조
 - OrderServiceImpl 은 DiscountPolicy 와 FixDiscountPolicy 를 모두 의존함. 
 
+- 만약 할인 정책에 변경이 생긴다면, OrderServiceIpml 의 코드를 수정해야 함
+- 만약 해당 할인 정책을 의존하는 객체가 많고 로직이 많다면, 모두 다 수정해야 함
+- OCP 법칙에 어긋남
+```
+new FixDiscountPolicy() -> new RateDiscountPolicy()
+```
 
+- 이를 해결하는 방법은 OrderServiceImpl 내에서 DiscountPolicy 의 구현 객체를 정해지주지 않으면 됨
+- 그렇다고 코드를 아래와 같이 바꾸면, NullPointerException 이 발생함. 너무 나도 당연함.
 
+```
+public class OrderServiceImpl implements OrderService {
+
+    private final DiscountPolicy discountPolicy;
+
+    @Override
+    public Order createOrder(int age, String itemName, int itemPrice) {
+        int discountPrice = discountPolicy.discount(age, itemPrice);
+        return new Order(itemName, itemPrice, discountPrice);
+    }
+}
+```
+
+- 이를 해소하기 위해서 외부에서 DiscountPolicy 를 주입해 주어야 함.
+- 이때 의존성 주입(DI) 이 사용됨. 
+<br>
+### 방법 1 :  Constructor 를 통해 DiscountPolicy 초기화
+
+```
+public class OrderServiceImpl implements OrderService {
+
+    private final DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
+    @Override
+    public Order createOrder(int age, String itemName, int itemPrice) {
+        int discountPrice = discountPolicy.discount(age, itemPrice);
+        return new Order(itemName, itemPrice, discountPrice);
+    }
+}
+```
+- 하지만, 이를 위해서 
+
+```
 
