@@ -119,8 +119,9 @@ public class OrderServiceImpl implements OrderService {
 
 - 이를 해소하기 위해서 외부에서 DiscountPolicy 를 주입해 주어야 함.
 - 이때 의존성 주입(DI) 이 사용됨. 
-<br>
-### 방법 1 :  Constructor 를 통해 DiscountPolicy 초기화
+### 개선안
+
+#### 방법 1 :  Constructor 를 통해 DiscountPolicy 초기화
 
 ```
 public class OrderServiceImpl implements OrderService {
