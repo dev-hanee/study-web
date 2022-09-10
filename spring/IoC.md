@@ -200,4 +200,7 @@ public class OrderServiceImpl implements OrderService {
 - 이렇게 AppConfig 처럼 객체를 생성하고, 관리하면서 의존 관계를 연결해주는 것을 IoC container / DI container 라고 함. 
 - 최근에는 의존 관계 자체에 초점을 맞추어 DI 컨테이너라고 함.
 
+<hr>
 
+### reference
+- https://steady-coding.tistory.com/458
